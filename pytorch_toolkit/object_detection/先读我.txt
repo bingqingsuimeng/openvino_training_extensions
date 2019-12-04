@@ -1,0 +1,12 @@
+1.下载openvino_training_extensions后要下载子模块儿git submodule update --init --recursive
+2.到pytorch_toolkit/object_detection下pip install -r requirements.txt
+3.mmdetection要提前编译，不然出一些不能导入的错误 ①bash compile.sh ②python setup.py develop
+4.按照mmdetection/configs/pascal_voc下的ssd300_voc.py修改mobilenetv2_tiny_ssd300_wider_face.py注意之中的类别要加1（算上背景）
+5.其中的数据集为百度网盘上的VOC2008数据集，放到openvino_training_extensions/data/VOCdevkit下
+6.修改mmdetection/mmdet/datasets/loader/voc.py中的CLASSES变量为实际标签（注意不包括背景）
+7.修改mobilenetv2_tiny_ssd300_wider_face.py的    imgs_per_gpu=8,workers_per_gpu=2,不要太大，容易内存爆掉
+
+
+cuda10运行环境  driver Version: 418.56
+openvino运行命令
+8./object_detection_sample_ssd -d "MYRIAD" -m ../../../samples/carlicencedetect/mb2-ssd-lite.xml -i ../../../samples/carlicencedetect/5856.jpg
