@@ -4,6 +4,7 @@
 4.按照mmdetection/configs/pascal_voc下的ssd300_voc.py修改mobilenetv2_tiny_ssd300_wider_face.py注意之中的类别要加1（算上背景）
 5.其中的数据集为百度网盘上的VOC2008数据集，放到openvino_training_extensions/data/VOCdevkit下
 6.修改mmdetection/mmdet/datasets/loader/voc.py中的CLASSES变量为实际标签（注意不包括背景）
+  否则会出现类似（RuntimeError: Assertion `cur_target >= 0 && cur_target < n_classes' failed）的错误
 7.修改mobilenetv2_tiny_ssd300_wider_face.py的    imgs_per_gpu=8,workers_per_gpu=2,不要太大，容易内存爆掉
 
 
