@@ -7,6 +7,9 @@
   否则会出现类似（RuntimeError: Assertion `cur_target >= 0 && cur_target < n_classes' failed）的错误
 7.修改mobilenetv2_tiny_ssd300_wider_face.py的    imgs_per_gpu=8,workers_per_gpu=2,不要太大，容易内存爆掉
 
+①train:python external/mmdetection/tools/train.py pytorch_toolkit/object_detection/configs/mobilenetv2_tiny_ssd300_wider_face.py
+②test:python external/mmdetection/tools/test.py pytorch_toolkit/object_detection/configs/mobilenetv2_tiny_ssd300_wider_face.py models/wider_face_ssd300_mobilenet/latest.pth --out resutl.pkl
+③evl_map:python external/mmdetection/tools/voc_eval.py resutl.pkl pytorch_toolkit/object_detection/configs/mobilenetv2_tiny_ssd300_wider_face.py
 
 cuda10运行环境  driver Version: 418.56
 openvino运行命令
