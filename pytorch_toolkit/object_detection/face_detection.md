@@ -77,7 +77,8 @@ data
   ```
   This produces model `face_detector.xml` and weights `face_detector.bin` in single-precision floating-point format
   (FP32). The obtained model expects normalized image in planar BGR format.
-
+  此处发现训练处的安全帽模型，在经上述命令转换后，无法识别，原因是转换模型的时候参数一定要根据需要变化，把上述命令中的--scale 255
+  去掉后，检测正常，用的是openvino中自带的object_detection_sample_ssd
 
 ## Python demo
 
